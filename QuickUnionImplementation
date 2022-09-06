@@ -1,0 +1,48 @@
+# Quick Union Implementation Disjoint Sets
+class UnionFind:
+    # initializing union find constructor
+    # by creating an array of given size
+    # with values equal to corresponding
+    # array indices;this requires linear time
+    def __init__(self, size):
+        self.root = [i for i in range(size)]
+
+    # each call to find requires O(n) time
+    # since we are traversing through every node
+    # until we find root for input node
+    def find(self, x):
+        while x != self.root[x]:
+            x = self.root[x]
+        return x
+
+    # consists of 2 find operations (which only
+    # in worst case) takes O(N) time and 2 constant
+    # time operations, including the equality check
+    # and updating array value at a given index
+    # union operation also costs O(N) in the worst case.
+    def union(self, x, y):
+        rootX = self.find(x)
+        rootY = self.find(y)
+
+        if rootX != rootY:
+            self.root[rootY] = rootX
+
+    # connected operation takes o(1) time
+    # since it involves two find calls and
+    # equal operation.
+    def connected(self, x, y):
+        return self.find(x) == self.find(y)
+
+
+uf = UnionFind(10)
+uf.union(1, 2)
+uf.union(2, 5)
+uf.union(5, 6)
+uf.union(6, 7)
+uf.union(3, 8)
+uf.union(8, 9)
+print(uf.connected(1, 5))
+print(uf.connected(5, 7))
+print(uf.connected(4, 9))
+uf.union(9, 4)
+print(uf.connected(4, 9))
