@@ -1,0 +1,24 @@
+#code
+import sys
+
+# Define number of Test cases
+T = int(sys.stdin.readline().strip())
+
+# loop through all Test cases
+for t in range(T):
+    # Define size of array
+    N = int(sys.stdin.readline().rstrip())
+    
+    # Elements of the array
+    A = list(map(int, sys.stdin.readline().rstrip().split()))
+    
+    # reverse elements of the array
+    left = 0
+    right = N-1
+    while left < right:
+        temp = A[left]
+        A[left] = A[right]
+        A[right]= temp
+        left += 1
+        right -= 1
+print(*A, sep=' ')
