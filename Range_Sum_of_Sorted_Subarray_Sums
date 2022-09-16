@@ -1,0 +1,15 @@
+class Solution:
+    def rangeSum(self, nums: List[int], n: int, left: int, right: int) -> int:
+        k = 1        
+        sub_arr_sums = []
+        for i in range(n):
+            j = i + 1
+            while j<=n:
+                sub_arr = nums[i:j]
+                sum_subarr = sum(sub_arr) % 1000000007
+                sub_arr_sums.append(sum_subarr)
+                j = j+1
+        sub_arr_sums.sort()       
+        sum_nums = sum(sub_arr_sums[left-1:right])
+        return sum_nums % (1000000007)
+        
