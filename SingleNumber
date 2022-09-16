@@ -1,0 +1,13 @@
+# https://leetcode.com/problems/single-number/
+# Solution to Single Number
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        nums_dict = {}
+
+        for i in nums:
+            if i not in nums_dict:
+                nums_dict[i] = nums.count(i)
+
+        for key in nums_dict:
+            if nums_dict[key] == 1:
+                return key
