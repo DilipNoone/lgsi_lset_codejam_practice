@@ -1,0 +1,60 @@
+# Program to move all negative elements to end of the array.
+#User function Template for python3
+
+class Solution:
+    def segregateElements(self, arr, n):
+        # Your code goes here
+        i = 0
+        j = n-1
+        k = 0
+        ans = [None] * n
+        for k in range(n):
+            elem = arr[k]
+            if elem >= 0:
+                ans[i] = elem
+                i += 1
+            else:
+                ans[j] = elem
+                j = j-1
+        # If input array contains all
+        # positive and negative elements
+        if i == n or i == 0:
+            return
+        ans[i:] = ans[n-1:i-1:-1]
+        for k in range(n):
+            arr[k] = ans[k]
+                
+            
+        
+        
+                
+
+
+#{ 
+ # Driver Code Starts
+#Initial Template for Python 3
+
+
+def main():
+
+    T = int(input())
+
+    while(T > 0):
+        n = int(input())
+        a = [int(x) for x in input().strip().split()]
+        ob=Solution()
+        ob.segregateElements(a, n)
+        print(*a)
+
+        T -= 1
+
+
+if __name__ == "__main__":
+    main()
+
+
+
+
+
+    
+# } Driver Code Ends
