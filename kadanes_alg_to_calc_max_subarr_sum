@@ -18,8 +18,10 @@ class Solution:
         #     if max_ending_here < 0:
         #         max_ending_here = 0
         # return max_so_far
+        # Above implem works only if atleast arr has 1 pos integer
         
         # Using D.P
+        # Below implem works even if arr has all -ve integers
         current_max = arr[0]
         max_sum = arr[0]
         
