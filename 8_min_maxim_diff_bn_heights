@@ -1,4 +1,4 @@
-# Minimize height difference
+# Minimize max difference between the heights
 # https://practice.geeksforgeeks.org/problems/minimize-the-heights3351/1
 
 #User function Template for python3
